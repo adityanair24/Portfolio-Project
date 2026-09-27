@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aditya Nair | AI & Technology Portfolio</title>
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            padding: 100px 8%;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER / NAVIGATION
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 17, 31, 0.90);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* AN LOGO */
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #00e5ff, #7c3aed);
+            box-shadow: 0 0 25px rgba(0,229,255,0.4);
+            position: relative;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border: 2px solid #00e5ff;
+            border-radius: 50%;
+            animation: logoPulse 2s infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 0.2;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            color: #dbeafe;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00e5ff;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 130px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0,229,255,0.15), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(124,58,237,0.18), transparent 30%);
+        }
+
+        .hero {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h4 {
+            color: #00e5ff;
+            font-size: 18px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            animation: fadeDown 1s ease;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(45px, 7vw, 80px);
+            line-height: 1;
+            margin-bottom: 20px;
+            animation: fadeUp 1s ease;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(90deg, #00e5ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 24px;
+            color: #dbeafe;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-text p {
+            max-width: 650px;
+            color: #a8b5c7;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #00c6ff, #7c3aed);
+            box-shadow: 0 8px 30px rgba(0,198,255,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,198,255,0.45);
+        }
+
+        .btn-outline {
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+        }
+
+        .btn-outline:hover {
+            background: #00e5ff;
+            color: #07111f;
+        }
+
+        /* HERO ORBIT */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .orbit {
+            width: 310px;
+            height: 310px;
+            border: 1px solid rgba(0,229,255,0.3);
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 15s linear infinite;
+        }
+
+        .orbit::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border: 1px solid rgba(124,58,237,0.4);
+            border-radius: 50%;
+            top: 45px;
+            left: 45px;
+        }
+
+        .orbit-center {
+            position: absolute;
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00e5ff, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            font-weight: bold;
+            top: 92px;
+            left: 92px;
+            box-shadow: 0 0 50px rgba(0,229,255,0.5);
+        }
+
+        .planet {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #00e5ff;
+            border-radius: 50%;
+            top: 5px;
+            left: 142px;
+            box-shadow: 0 0 20px #00e5ff;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================
+           SECTION TITLES
+        ========================== */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #00e5ff;
+        }
+
+        .section-title p {
+            color: #9aaabd;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        #about {
+            background: #091625;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.4s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+            box-shadow: 0 15px 40px rgba(0,229,255,0.08);
+        }
+
+        .about-card h3 {
+            color: #00e5ff;
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+
+        .about-card p {
+            color: #b6c2d1;
+            margin-bottom: 15px;
+        }
+
+        .interest-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .interest {
+            padding: 15px;
+            background: rgba(0,229,255,0.06);
+            border-radius: 12px;
+            border: 1px solid rgba(0,229,255,0.1);
+            text-align: center;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            padding: 30px;
+            background: linear-gradient(145deg, #0d1d30, #091522);
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #00e5ff;
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            color: #e7f8ff;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #8fa2b8;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        #projects {
+            background: #091625;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            position: relative;
+            padding: 35px;
+            background: #0c1b2d;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(0,229,255,0.08);
+            right: -40px;
+            top: -40px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .project-number {
+            color: #00e5ff;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .project-card h3 {
+            margin: 12px 0;
+            font-size: 24px;
+        }
+
+        .project-card p {
+            color: #aebdce;
+            margin-bottom: 15px;
+        }
+
+        .project-card ul {
+            padding-left: 20px;
+            color: #91a4b9;
+        }
+
+        .project-card li {
+            margin-bottom: 7px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 45px;
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                rgba(0,229,255,0.08),
+                rgba(124,58,237,0.10)
+            );
+            border: 1px solid rgba(0,229,255,0.2);
+            border-radius: 25px;
+        }
+
+        .contact-box h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #aebdce;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            padding: 15px 22px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            background: rgba(0,229,255,0.1);
+        }
+
+        .contact-item span {
+            color: #00e5ff;
+            margin-right: 7px;
+        }
+
+        .aspiration {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 30px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            background: #050d17;
+            color: #8796a8;
+        }
+
+        footer strong {
+            color: #00e5ff;
+        }
+
+        /* =========================
+           FLOATING DECORATIONS
+        ========================== */
+
+        .shape {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .shape-one {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #00e5ff;
+            transform: rotate(45deg);
+            right: 5%;
+            top: 30%;
+            animation: floatShape 7s ease-in-out infinite;
+        }
+
+        .shape-two {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #7c3aed;
+            left: 5%;
+            bottom: 20%;
+            animation: floatShape 9s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatShape {
+            0%,100% {
+                transform: translateY(0) rotate(45deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(90deg);
+            }
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin-top: 30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .hero-text h1 {
+                font-size: 48px;
+            }
+
+            .tagline {
+                font-size: 19px;
+            }
+
+            .orbit {
+                width: 240px;
+                height: 240px;
+            }
+
+            .orbit-center {
+                width: 100px;
+                height: 100px;
+                top: 70px;
+                left: 70px;
+                font-size: 35px;
+            }
+
+            .planet {
+                left: 108px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interest-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Decorative Shapes -->
+    <div class="shape shape-one"></div>
+    <div class="shape shape-two"></div>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <nav>
+
+            <a href="#home">
+                <div class="logo">AN</div>
+            </a>
+
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section id="home">
+
+        <div class="hero">
+
+            <div class="hero-text">
+
+                <h4>HELLO, I'M</h4>
+
+                <h1>
+                    Aditya <span>Nair</span>
+                </h1>
+
+                <div class="tagline">
+                    Turning Curiosity into Code, Ideas into Innovation.
+                </div>
+
+                <p>
+                    I am a technology enthusiast and student passionate about
+                    Artificial Intelligence, programming and building creative
+                    digital experiences.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+                        🚀 Explore My Projects
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        ✉ Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="orbit">
+
+                    <div class="planet"></div>
+
+                    <div class="orbit-center">
+                        AN
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT ME
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>About <span>Me</span></h2>
+
+                <p>Get to know me beyond the code.</p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-card">
+
+                    <h3>👨‍💻 Who Am I?</h3>
+
+                    <p>
+                        My name is <strong>Aditya Nair</strong>. I completed my
+                        schooling from <strong>DAV Public School, Pune</strong>.
+                    </p>
+
+                    <p>
+                        I am currently studying at
+                        <strong>Scaler School of Technology, Bengaluru</strong>.
+                    </p>
+
+                    <p>
+                        I am passionate about technology, Artificial
+                        Intelligence, programming and learning how technology
+                        can be used to solve real-world problems.
+                    </p>
+
+                    <p>
+                        My aspiration is to become an
+                        <strong>AI Specialist</strong> and reach new heights
+                        through continuous learning and innovation.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <h3>🎯 Beyond Technology</h3>
+
+                    <p>
+                        Technology is one part of who I am. I also enjoy
+                        music, sports and creative activities.
+                    </p>
+
+                    <p>
+                        I am a <strong>trained Mridangam artist</strong>.
+                        In my spare time, I enjoy sketching and humming
+                        Hindi movie hit songs.
+                    </p>
+
+                    <div class="interest-list">
+
+                        <div class="interest">🏏 Cricket</div>
+
+                        <div class="interest">⚽ Football</div>
+
+                        <div class="interest">♟️ Chess</div>
+
+                        <div class="interest">🎨 Sketching</div>
+
+                        <div class="interest">🥁 Mridangam</div>
+
+                        <div class="interest">🎵 Music</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>My <span>Skills</span></h2>
+
+                <p>Technologies and AI tools I work with.</p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Programming & problem solving</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>ChatGPT</h3>
+                    <p>AI-assisted productivity & learning</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Copilot</h3>
+                    <p>AI-assisted coding</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML</h3>
+                    <p>Web structure & development</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>CSS</h3>
+                    <p>Design, layouts & animations</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>SQL</h3>
+                    <p>Database management & queries</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>My <span>Projects</span></h2>
+
+                <p>Some of the things I have built and explored.</p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <div class="project-card">
+
+                    <div class="project-number">
+                        PROJECT 01
+                    </div>
+
+                    <h3>🎓 GRC College Management System</h3>
+
+                    <p>
+                        A college management system designed to help college
+                        management staff efficiently maintain student records
+                        and academic information.
+                    </p>
+
+                    <ul>
+                        <li>Add student records</li>
+                        <li>Update student information</li>
+                        <li>Amend academic details</li>
+                        <li>Delete student records</li>
+                        <li>Manage student results</li>
+                    </ul>
+
+                </div>
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="project-card">
+
+                    <div class="project-number">
+                        PROJECT 02
+                    </div>
+
+                    <h3>🎮 Flexbox Game</h3>
+
+                    <p>
+                        A small interactive game/interface created to
+                        experiment with modern CSS layout techniques.
+                    </p>
+
+                    <ul>
+                        <li>Flexbox</li>
+                        <li>Display properties</li>
+                        <li>CSS Box Model</li>
+                        <li>Margin & Padding</li>
+                        <li>Backgrounds</li>
+                    </ul>
+
+                </div>
+
+
+                <!-- PROJECT 3 -->
+
+                <div class="project-card">
+
+                    <div class="project-number">
+                        PROJECT 03
+                    </div>
+
+                    <h3>📱 Responsive Website</h3>
+
+                    <p>
+                        A responsive website designed to provide a smooth
+                        experience across desktops, tablets and mobile devices.
+                    </p>
+
+                    <ul>
+                        <li>CSS Grid</li>
+                        <li>Flexbox</li>
+                        <li>Media Queries</li>
+                        <li>Responsive Design</li>
+                    </ul>
+
+                </div>
+
+
+                <!-- PROJECT 4 -->
+
+                <div class="project-card">
+
+                    <div class="project-number">
+                        PROJECT 04
+                    </div>
+
+                    <h3>✨ CSS Animation Project</h3>
+
+                    <p>
+                        An experimental project focused on creating attractive
+                        animated web components using CSS.
+                    </p>
+
+                    <ul>
+                        <li>Transitions</li>
+                        <li>Transform</li>
+                        <li>Keyframes</li>
+                        <li>Animated Components</li>
+                    </ul>
+
+                </div>
+
+
+                <!-- PROJECT 5 -->
+
+                <div class="project-card">
+
+                    <div class="project-number">
+                        PROJECT 05
+                    </div>
+
+                    <h3>🚀 Personal Experiment</h3>
+
+                    <p>
+                        A flexible project space where I can experiment with
+                        new ideas and technologies.
+                    </p>
+
+                    <ul>
+                        <li>Landing Page</li>
+                        <li>Product Website</li>
+                        <li>Restaurant Website</li>
+                        <li>Gaming Website</li>
+                        <li>Movie / Music Website</li>
+                        <li>Dashboard / Blog / Event Website</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Let's <span>Connect</span></h2>
+
+                <p>Have an idea? Let's turn it into something exciting.</p>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h3>🚀 Get In Touch</h3>
+
+                <p>
+                    I am always interested in learning, building new projects
+                    and exploring opportunities in technology and AI.
+                </p>
+
+
+                <div class="contact-info">
+
+                    <div class="contact-item">
+                        <span>📱</span>
+                        9552093373
+                    </div>
+
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:adtiyanaairr@gmail.com">
+                            adtiyanaairr@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="aspiration">
+
+                    🤖 Aspiring AI Specialist
+
+                    <br>
+
+                    <span style="color:#00e5ff;">
+                        "Sky is not the limit."
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 <strong>AN</strong> | Aditya Nair
+        </p>
+
+        <p>
+            Designed with 💙 | Built with HTML & CSS
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
